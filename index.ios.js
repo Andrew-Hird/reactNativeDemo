@@ -1,47 +1,26 @@
 import React, { Component } from 'react'
-import { AppRegistry, StyleSheet, Text, View } from 'react-native'
+import { AppRegistry, Text, TextInput, View } from 'react-native'
 
-class LotsOfStyles extends Component {
+class PizzaTranslator extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {text: ''};
+  }
+
   render() {
     return (
-      <View style={[styles.flex1, styles.view]}>
-        <Text style={[styles.flex1, styles.red]}>flex1, just red</Text>
-        <Text style={[styles.flex2, styles.bigblue]}>flex2, just bigblue</Text>
-        <Text style={[styles.flex3, styles.bigblue, styles.red]}>flex3, bigblue, then red</Text>
-        <Text style={[styles.flex4, styles.red, styles.bigblue]}>flex4, red, then bigblue</Text>
+      <View style={{padding: 20}}>
+        <TextInputcat
+          style={{height: 40}}
+          placeholder="Type here to translate!"
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Text style={{padding: 10, fontSize: 42}}>
+          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+        </Text>
       </View>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  view: {
-    marginTop: 20
-  },
-  bigblue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-  red: {
-    color: 'red',
-  },
-  flex1: {
-    flex: 1,
-    backgroundColor: 'powderblue'
-  },
-  flex2: {
-    flex: 2,
-    backgroundColor: 'skyblue'
-  },
-  flex3: {
-    flex: 3,
-    backgroundColor: 'steelblue'
-  },
-  flex4: {
-    flex: 4,
-    backgroundColor: 'black'
-  }
-})
-
-AppRegistry.registerComponent('reactNativeDemo', () => LotsOfStyles)
+AppRegistry.registerComponent('reactNativeDemo', () => PizzaTranslator)
