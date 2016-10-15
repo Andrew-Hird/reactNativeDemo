@@ -1,5 +1,5 @@
  import React, { Component } from 'react'
- import { AppRegistry, Image } from 'react-native'
+ import { AppRegistry, Image, Text, View } from 'react-native'
 
  class Bananas extends Component {
    render() {
@@ -12,4 +12,25 @@
    }
  }
 
- AppRegistry.registerComponent('reactNativeDemo', () => Bananas)
+ class Greeting extends Component {
+  render() {
+    return (
+      <Text>Hello {this.props.name}!</Text>
+    );
+  }
+}
+
+ class Props extends Component {
+   render() {
+     return (
+       <View style={{alignItems: 'center', marginTop: 20}}>
+       <Bananas />
+         <Greeting name='Bob' />
+         <Greeting name='Jane' />
+         <Greeting name='Greg' />
+       </View>
+     );
+   }
+ }
+
+ AppRegistry.registerComponent('reactNativeDemo', () => Props)
