@@ -4,7 +4,7 @@
   export default class Hello extends Component {
    render() {
      return (
-       <Text>Hello!</Text>
+       <Text style={{marginTop: 20, textAlign: 'center'}}>Hello!</Text>
      )
    }
  }
