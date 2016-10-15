@@ -1,26 +1,38 @@
-import React, { Component } from 'react'
-import { AppRegistry, Text, TextInput, View } from 'react-native'
+import React, { Component } from 'react';
+import { AppRegistry, Navigator, Text, View } from 'react-native';
 
-class PizzaTranslator extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {text: ''};
-  }
+import MyScene from './MyScene';
 
+class SimpleNavigationApp extends Component {
   render() {
     return (
-      <View style={{padding: 20}}>
-        <TextInputcat
-          style={{height: 40}}
-          placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
-        />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
-      </View>
+      <Navigator
+        style={{marginTop: 20}}
+        initialRoute={{ title: 'My Initial Scene', index: 0 }}
+        renderScene={(route, navigator) =>
+          <MyScene
+            title={route.title}
+
+            // Function to call when a new scene should be displayed
+            onForward={ () => {
+              const nextIndex = route.index + 1;
+              navigator.push({
+                title: 'Scene ' + nextIndex,
+                index: nextIndex,
+              });
+            }}
+
+            // Function to call to go back to the previous scene
+            onBack={() => {
+              if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
+        }
+      />
     )
   }
 }
 
-AppRegistry.registerComponent('reactNativeDemo', () => PizzaTranslator)
+AppRegistry.registerComponent('reactNativeDemo', () => SimpleNavigationApp);
