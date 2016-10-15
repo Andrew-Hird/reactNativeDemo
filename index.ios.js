@@ -1,67 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
  import React, { Component } from 'react';
- import { AppRegistry, Text } from 'react-native';
+ import { AppRegistry, Image } from 'react-native';
 
-  export default class HelloWorldApp extends Component {
+ class Bananas extends Component {
    render() {
+     let pic = {
+       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+     };
      return (
-       <Text>Hello world!</Text>
+       <Image source={pic} style={{width: 193, height: 110}}/>
      );
    }
  }
 
- // AppRegistry.registerComponent('HelloWorldApp', () => HelloWorldApp);
- AppRegistry.registerComponent('reactNativeDemo', () => HelloWorldApp)
-
-// import React, { Component } from 'react';
-// import {
-//   AppRegistry,
-//   StyleSheet,
-//   Text,
-//   View
-// } from 'react-native';
-//
-// export default class reactNativeDemo extends Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>
-//           Welcome to React Native!
-//         </Text>
-//         <Text style={styles.instructions}>
-//           To get started, edit index.ios.js
-//         </Text>
-//         <Text style={styles.instructions}>
-//           Press Cmd+R to reload,{'\n'}
-//           Cmd+D or shake for dev menu
-//         </Text>
-//       </View>
-//     );
-//   }
-// }
-//
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
-//
-// AppRegistry.registerComponent('reactNativeDemo', () => reactNativeDemo);
+ AppRegistry.registerComponent('reactNativeDemo', () => Bananas)
