@@ -1,12 +1,12 @@
  import React, { Component } from 'react'
  import { AppRegistry, Text } from 'react-native'
 
-  export default class HelloWorldApp extends Component {
+  export default class Hello extends Component {
    render() {
      return (
-       <Text>Hello world!</Text>
+       <Text>Hello!</Text>
      )
    }
  }
 
- AppRegistry.registerComponent('reactNativeDemo', () => HelloWorldApp)
+ AppRegistry.registerComponent('reactNativeDemo', () => Hello)
