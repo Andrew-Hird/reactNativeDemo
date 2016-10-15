@@ -1,36 +1,31 @@
 import React, { Component } from 'react'
-import { AppRegistry, Text, View } from 'react-native'
+import { AppRegistry, StyleSheet, Text, View } from 'react-native'
 
-class Blink extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {showText: true};
-
-    // Toggle the state every second
-    setInterval(() => {
-      this.setState({ showText: !this.state.showText })
-    }, 1000)
-  }
-
-  render() {
-    let display = this.state.showText ? this.props.text : ' '
-    return (
-      <Text>{display}</Text>
-    )
-  }
-}
-
-class BlinkApp extends Component {
+class LotsOfStyles extends Component {
   render() {
     return (
-      <View style={{marginTop: 20}}>
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
+      <View style={styles.view}>
+        <Text style={styles.red}>just red</Text>
+        <Text style={styles.bigblue}>just bigblue</Text>
+        <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
+        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
       </View>
-    )
+    );
   }
 }
 
-AppRegistry.registerComponent('reactNativeDemo', () => BlinkApp)
+const styles = StyleSheet.create({
+  view: {
+    marginTop: 20
+  },
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
+  },
+})
+
+AppRegistry.registerComponent('reactNativeDemo', () => LotsOfStyles)
