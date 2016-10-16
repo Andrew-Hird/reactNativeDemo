@@ -10,7 +10,7 @@ class PizzaTranslator extends Component {
   render() {
     return (
       <View style={{padding: 20}}>
-        <TextInputcat
+        <TextInput
           style={{height: 40}}
           placeholder="Type here to translate!"
           onChangeText={(text) => this.setState({text})}
